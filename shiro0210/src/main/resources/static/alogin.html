@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="jquery/jquery-2.0.3.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <a href="index.html">index</a>
+    <br>
+
+    <input type="text" value="tom" name="username" placeholder="用户名">
+    <input type="text" value="123456" name="password" placeholder="密码">
+    <button id="btn_id" >提交</button>
+    <button id="btn_id2" >提交</button>
+
+    <div id="msg"></div>
+
+<script type="text/javascript">
+    $(function(){
+
+
+        $("#btn_id").click(function () {
+            $.post("/login2",
+                {
+                    username: $("input[name='username']").val(),
+                    password: $("input[name='password']").val()
+                },
+                function (data) {
+                    alert("data: " + data);
+                    $("#msg").html(data);
+                })
+        });
+        $("#btn_id2").click(function () {
+            $.post("/login2",
+                {
+                    username2: $("input[name='username']").val(),
+                    password2: $("input[name='password']").val()
+                },
+                function (data) {
+                    alert("data: " + data);
+                    $("#msg").html(data);
+                })
+        });
+
+    });
+
+</script>
+
+</body>
+</html>

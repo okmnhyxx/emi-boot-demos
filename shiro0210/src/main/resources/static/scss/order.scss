@@ -1,0 +1,51 @@
+@import "./common";
+
+.detail-info {
+  td {
+    text-align: left;
+    padding: 0 10px;
+    white-space: normal;
+  }
+}
+
+.detail-container {
+  width: 80%;
+  margin: 20px 40px 40px 40px;
+}
+
+.detail-first-title {
+  width: 100%;
+  font-size: 0;
+  margin-bottom: 10px;
+}
+
+.detail-second-title, .detail-third-title {
+  margin: 30px 0 10px 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.detail-sub-title {
+  width: 50%;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+li {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  display: inline-block;
+  img {
+    width: 100%;
+  }
+}
+
+.width-12 {
+  width: 12%;
+}
+
+.width-38 {
+  width: 38%;
+}

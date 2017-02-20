@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.emi.shiro.repository.mapper.UserMapper">
+
+       <select id="searchList" resultType="com.emi.shiro.dto.vo.UserListVo">
+           select u.* from t15_user u
+           where 1 = 1
+           <if test="null != username || '' != username">
+               and u.username like '%'||#{username}||'%'
+           </if>
+           <if test="null != locked">
+               and u.locked = #{locked}
+           </if>
+           limit #{currentPage},#{pageSize}
+       </select>
+
+</mapper>

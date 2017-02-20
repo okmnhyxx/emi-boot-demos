@@ -1,0 +1,56 @@
+@import "./common";
+
+ul {
+  display: inline-block;
+}
+
+li {
+  display: inline;
+}
+
+.star-container {
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  vertical-align: sub;
+  position: relative;
+  .star-bg-container {
+    height: 22px;
+    width: 22px;
+    padding: 0 3px;
+  }
+  .star-bg {
+    height: 100%;
+    width: 100%;
+    background: $color-orange;
+  }
+  img {
+    height: 22px;
+    width: 22px;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.shopPic {
+  height: 70px;
+  width: 70px;
+  margin-left: 20px;
+}
+
+.unable-btn {
+  display: inline-block;
+  padding: 8px 15px;
+  color: $color-white;
+  border: none;
+  @include borderRadius(3px);
+}
+
+.valid-radio-container {
+  text-align: center;
+  margin-bottom: 15px;
+  .pass-span {
+    margin-right: 30px;
+  }
+}

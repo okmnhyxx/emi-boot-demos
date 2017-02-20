@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<logger name="sample.logback" level="DEBUG" />
+	<springProfile name="staging">
+		<logger name="sample.logback" level="TRACE" />
+	</springProfile>
+
+	<property name="LOG_FILE2" value="/var/log/demo/shiro0210.log"/>
+	<property name="LOG_FILE_DAILY2" value="/var/log/demo/shiro0210.%d{yyyy-MM-dd}.log"/>
+
+	<appender name="FILE2"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<file>${LOG_FILE2}</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_FILE_DAILY2}</fileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+		</layout>
+	</appender>
+
+	<!--<logger name="com.emi.repository.*" level="debug" />-->
+
+	<root level="DEBUG">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE2" />
+	</root>
+
+
+</configuration>

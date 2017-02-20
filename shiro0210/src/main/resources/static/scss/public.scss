@@ -1,0 +1,431 @@
+@import "./common";
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?1lmxh8');
+  src:  url('../fonts/icomoon.eot?1lmxh8#iefix') format('embedded-opentype'),
+  url('../fonts/icomoon.ttf?1lmxh8') format('truetype'),
+  url('../fonts/icomoon.woff?1lmxh8') format('woff'),
+  url('../fonts/icomoon.svg?1lmxh8#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-close:before {
+  content: "\e900";
+}
+.icon-cl-base:before {
+  content: "\e901";
+}
+.icon-cl-location:before {
+  content: "\e902";
+}
+.icon-cl-authority:before {
+  content: "\e903";
+}
+.icon-cl-select:before {
+  content: "\e904";
+}
+.icon-cl-seller:before {
+  content: "\e905";
+}
+.icon-cl-goods:before {
+  content: "\e906";
+}
+.icon-cl-list:before {
+  content: "\e907";
+}
+.icon-cl-money:before {
+  content: "\e908";
+}
+.icon-cl-order:before {
+  content: "\e909";
+}
+.icon-cl-client:before {
+  content: "\e90a";
+}
+.icon-cl-rdropdown:before {
+  content: "\e90b";
+}
+.icon-cl-report:before {
+  content: "\e90c";
+}
+.icon-cl-system:before {
+  content: "\e90d";
+}
+.icon-cl-sdropdown:before {
+  content: "\e90e";
+}
+.icon-cl-coupon:before {
+  content: "\e90f";
+}
+
+html, body, div, ul, li, input {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
+  color: $color-dark-black;
+  background-color: $color-bg;
+  overflow: hidden;
+}
+
+input:focus,select:focus,button:focus,textarea:focus, input[type=checkbox]:focus {
+  outline: none;
+}
+
+a:focus, a:hover {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+th, td {
+  text-align: center;
+  white-space:nowrap;
+  input[type=checkbox] {
+    margin: 4px 8px;
+  }
+}
+
+.sub-content {
+  margin: 15px 15px 30px 15px;
+  background: $color-white;
+  border: 1px solid $color-border;
+  @include borderRadius(5px);
+}
+
+.flow-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.sub-bar {
+  width: 100%;
+  padding: 10px 15px;
+  border-bottom: 1px solid $color-border;
+}
+
+.search-container {
+  padding: 15px 15px 5px 15px;
+  label {
+    height: $height-input;
+    line-height: $height-input;
+    margin-bottom: 0;
+  }
+
+}
+
+.input-container, .time-container {
+  margin-left: 65px;
+  margin-top: -34px;
+}
+
+.time-container {
+  font-size: 0;
+  -webkit-text-size-adjust:none;
+  span {
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    width: 10%;
+  }
+}
+
+.search-input, .search-select, .search-time {
+  border: 1px solid $color-border;
+  height: $height-input;
+  line-height: $height-input;
+  padding: 0 5px;
+  width: 100%;
+  @include borderRadius(3px);
+}
+
+.search-select {
+  width: 20%;
+  min-width: 150px;
+  padding: 0 0 0 5px;
+}
+
+.search-time {
+  width: 45%;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.btn-normal {
+  margin: 0 5px;
+  height: $height-input;
+  width: $width-btn;
+  color: $color-white;
+  border: none;
+  @include borderRadius(3px);
+}
+
+.orange-btn {
+  background: $color-orange;
+}
+
+.blue-btn {
+  background: $color-light-blue;
+}
+
+.gray-btn {
+  background: $color-light-gray;
+}
+
+.upload-btn {
+  display: inline-block;
+  text-align: center;
+}
+
+.upload-btn:hover, .upload-btn:focus {
+  color: $color-white;
+}
+
+.btn-bar {
+  padding: 0 15px 15px 15px;
+}
+
+.pwd-btn {
+  cursor: pointer;
+  color: $color-light-blue;
+}
+
+.edit-btn {
+  cursor: pointer;
+  color: $color-orange;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.edit-container {
+  width: 100%;
+  padding: 20px;
+  span {
+    display: inline-block;
+    height: $height-input;
+    line-height: $height-input;
+  }
+  hr {
+    color: $color-dark-black;
+  }
+}
+
+.mask-layer {
+  position: absolute;
+  top: -15px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.mask-content {
+  background:#000;
+  opacity:0.3;
+  filter:alpha(opacity=30);
+  z-index:1000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.mask-hint-cont {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.mask-hint {
+  width: 250px;
+  height: 75px;
+  background: #fff;
+  border: 1px solid #bfbfbf;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  z-index:10000;
+  @extend %vertical-middle;
+}
+
+.mask-img {
+  background: url(../images/loading.gif) no-repeat;
+  height: 39px;
+  margin-top: 18px;
+  margin-left: 20px;
+}
+
+.mask-font {
+  font-size: 14px;
+  position: absolute;
+  top: 27px;
+  left: 82px;
+}
+
+.total-money {
+  padding: 0 20px 20px 0;
+  text-align: right;
+  span {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.pic-thumbnail {
+  width: 100px;
+  height: 100px;
+  display: block;
+  padding: 4px;
+  background-color: $color-white;
+  border: 1px solid #ddd;
+  @include borderRadius(3px);
+}
+
+.pic-cont {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.other-area {
+  resize: none;
+  border: 1px solid $color-border;
+  padding: 0 5px;
+  width: 100%;
+  @include borderRadius(3px);
+}
+
+.table-input {
+  width: 100%;
+  display: inline-block;
+  padding: 2px 5px;
+  background: transparent;
+  border: none;
+}
+
+td .table-input:focus {
+  border: 1px solid $color-dark-gray;
+}
+
+.error-border {
+  border-color: $color-red;
+}
+
+.error-hint {
+  color: $color-red;
+}
+
+.mar-b-10 {
+  margin-bottom: 10px;
+}
+
+.mar-r-10 {
+  margin-right: 10px;
+}
+
+.mar-l-19 {
+  margin-left: 19px;
+}
+
+.mar-t-20 {
+  margin-top: 20px;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.label-two {
+  margin-left: 51px;
+}
+
+.label-four {
+  margin-left: 79px;
+}
+
+.label-five {
+  margin-left: 93px;
+}
+
+.label-six {
+  margin-left: 107px;
+}
+
+.left-80 {
+  margin-left: 80px;
+}
+
+.left-10 {
+  left: 10px;
+}
+
+.left-95 {
+  left: 95px;
+}
+
+.left-110 {
+  left: 110px;
+}
+
+.top_40 {
+  top: -40px;
+}
+
+.top_50 {
+  top: -50px;
+}
+
+.dis-in-blo {
+  display: inline-block;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.width-auto {
+  width: auto;
+}
+
+.color-orange {
+  color: $color-orange;
+}
+
+.form-control, .form-control:focus {
+  border-color: $color-border;
+  outline: 0;   //删除了outline的默认样式
+  -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,.075), 0 0 0 rgba(102, 175, 233, .6);  //添加了阴影效果
+  box-shadow: inset 0 0 0 rgba(0,0,0,.075), 0 0 0 rgba(102, 175, 233, .6);
+}
+
