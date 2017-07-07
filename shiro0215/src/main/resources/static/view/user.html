@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>用户管理</title>
-</head>
-<body>
+<div ng-controller="userContentCtrl" id="userContentId">
+    <div ng-hide="retrieveAuth">抱歉 ， 您没有权限 </div>
+    <div ng-show="retrieveAuth">
+        <div ng-bind="successMsg"></div>
 
-</body>
-</html>
+        <br>
+        <a ui-sref="mainManager.userCreate" ng-show="createAuth">添加新用户</a>
+        <br>
+        <input type="text" ng-model="username">&nbsp;&nbsp;
+        <select ng-model="locked" >&nbsp;&nbsp;
+            <option value=""  >-----全部-----</option>
+            <option value="true">启用</option>
+            <option value="false">禁用</option>
+        </select>
+        <button ng-click="doSearchUser()">查询</button>
+        <br>
+        <div class="row">
+            <div class="col-md-11">
+                <table class="table table-bordered" style="border: 1px solid black; width: 100%">
+                    <thead>
+                        <tr class="row" >
+                            <th class="col-md-1">用户名</th>
+                            <th class="col-md-3">所属公司</th>
+                            <th class="col-md-3">角色列表</th>
+                            <th class="col-md-2">创建时间</th>
+                            <th class="col-md-1">状态</th>
+                            <th class="col-md-2">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="user in userList" class="row">
+                            <td class="col-md-1">{{user.username}}</td>
+                            <td class="col-md-3">{{user.organizationName}}</td>
+                            <td class="col-md-3">
+                                <span ng-repeat="r in user.roleVoList">{{r.roleName + "; "}}</span>
+                            </td>
+                            <td class="col-md-2">{{user.createTime}}</td>
+                            <td class="col-md-1">{{user.locked ? '禁用': '正常'}}</td>
+                            <td class="col-md-2">
+                                <a ui-sref="mainManager.userModify({id:user.id})" ng-show="updateAuth && (!user.locked)">修改</a>&nbsp;&nbsp;
+                                <a ng-show="deleteAuth && user.locked" ng-click="changeUserState(user.id, false)">启用</a>
+                                <a ng-show="deleteAuth && (!user.locked)" ng-click="changeUserState(user.id, true)">禁用</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <tm-pagination conf="paginationMsgConf"></tm-pagination>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <span ng-bind="errorMsg"></span>
+
+    </div>
+</div>

@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>角色管理</title>
-</head>
-<body>
+<div ng-controller="roleContentCtrl" id="roleContentId">
 
-</body>
-</html>
+    <div ng-hide="retrieveAuth">抱歉 ， 您没有权限 </div>
+    <div ng-show="retrieveAuth">
+        <div ng-bind="successMsg"></div>
+
+        <a ui-sref="mainManager.roleCreate" ng-show="createAuth">添加新角色</a>
+        <div class="row">
+            <table id="roleTableId" class="col-md-11" style="border: 1px solid black; margin-left: 15px ">
+                <thead >
+                    <tr class="row">
+                        <th class="col-md-2">角色名称</th>
+                        <th class="col-md-2">角色描述</th>
+                        <th class="col-md-4">角色资源</th>
+                        <th class="col-md-2">创建时间</th>
+                        <th class="col-md-2">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="role in roleList" class="row">
+                        <td ng-bind="role.roleName" class="col-md-2"></td>
+                        <td ng-bind="role.roleDesc" class="col-md-2"></td>
+                        <td class="col-md-4"><span ng-repeat="r in role.resourceVoList track by $index">{{r.name + "; "}}</span></td>
+                        <td ng-bind="role.createTime" class="col-md-2"></td>
+                        <td class="col-md-2">
+                            <a ui-sref="mainManager.roleModify({id:role.id})" ng-show="updateAuth">修改</a>
+                            <button ng-show="deleteAuth">禁用</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="col-md-1"></div>
+        </div>
+        {{errorMsg}}
+
+    </div>
+</div>

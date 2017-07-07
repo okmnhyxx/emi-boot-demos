@@ -6,7 +6,7 @@
 	<!--* ①：创建该类（分页用到）-->
 	<!--* ②：pom添加依赖包-->
 	<!--* ③：配置properties-->
-	<!--* ④：Application添加@MapperScan("com.emi.shiro.repository.mapper")-->
+	<!--* ④：Application添加@MapperScan("com.emi.shiro.t15.repository.mapper")-->
 	<!--* ⑤：在resources下创建mapper，放置xml文件-->
 	<!--* ⑥：需要写Mapper，并添加@Mapper-->
 	<!-- 全局参数 -->
@@ -34,15 +34,15 @@
 		<!-- 设置但JDBC类型为空时,某些驱动程序 要指定值,default:OTHER，插入空值时不需要指定类型 -->
 		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
-	<plugins>
-		<plugin interceptor="com.github.pagehelper.PageHelper">
-			<property name="dialect" value="mysql"/>
-			<property name="offsetAsPageNum" value="false"/>
-			<property name="rowBoundsWithCount" value="false"/>
-			<property name="pageSizeZero" value="true"/>
-			<property name="reasonable" value="false"/>
-			<property name="supportMethodsArguments" value="false"/>
-			<property name="returnPageInfo" value="none"/>
-		</plugin>
-	</plugins>
+	<!--<plugins>-->
+		<!--<plugin interceptor="com.github.pagehelper.PageHelper">-->
+			<!--<property name="dialect" value="mysql"/>-->
+			<!--<property name="offsetAsPageNum" value="false"/>-->
+			<!--<property name="rowBoundsWithCount" value="true"/>-->
+			<!--<property name="pageSizeZero" value="true"/>-->
+			<!--<property name="reasonable" value="false"/>-->
+			<!--<property name="supportMethodsArguments" value="false"/>-->
+			<!--<property name="returnPageInfo" value="true"/>-->
+		<!--</plugin>-->
+	<!--</plugins>-->
 </configuration>

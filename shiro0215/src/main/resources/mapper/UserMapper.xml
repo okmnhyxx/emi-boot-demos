@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.emi.shiro.repository.mapper.UserMapper">
+<mapper namespace="com.emi.shiro.t15.repository.mapper.UserMapper">
 
-       <select id="searchList" resultType="com.emi.shiro.dto.vo.UserListVo">
-           select u.* from t15_user u
-           where 1 = 1
-           <if test="null != username || '' != username">
-               and u.username like '%'||#{username}||'%'
-           </if>
-           <if test="null != locked">
-               and u.locked = #{locked}
-           </if>
-           limit #{currentPage},#{pageSize}
+       <select id="searchList" resultType="com.emi.shiro.t15.dto.vo.UserListVo">
+           select pu.* , o.name as organizationName from (
+               select u.id, u.username, u.organization_id, DATE_FORMAT(u.create_time, '%Y-%m-%d %H:%i:%s') as createTime, u.locked from t15_user u
+               where 1 = 1
+               <if test="null != username and '' != username">
+                   and u.username like '%'||#{username}||'%'
+               </if>
+               <if test="null != locked">
+                   and u.locked = #{locked}
+               </if>
+           ) pu
+           left join t15_organization o
+           on pu.organization_id = o.id
+
        </select>
 
 </mapper>
+
+        <!--limit #{currentPage},#{pageSize}-->

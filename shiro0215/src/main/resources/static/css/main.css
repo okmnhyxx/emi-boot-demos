@@ -1,0 +1,57 @@
+.aside {
+    width: 220px;
+    padding-bottom: 20px;
+    position: fixed;
+    top: 70px;
+    bottom: 0;
+    overflow: hidden;
+
+}
+
+html,body {
+    height: 100%;
+}
+
+
+.content {
+    margin-left: 220px;
+}
+
+
+
+.shiro-hidden {
+    display:none;
+}
+
+
+.table {
+    width:80%;
+    color:#333333;
+    text-align:center;
+    border-collapse:collapse;
+}
+.table td,.table th{
+    border:1px solid #333333;
+    padding: 10px;
+}
+
+.message {
+    background: #eee;
+    border: 1px solid #eee;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.form-group {
+    margin: 10px 0;
+}
+
+.form-group label {
+    width: 130px;
+    float: left;
+}
+
+
+.red {
+    color: red;
+}

@@ -1,0 +1,36 @@
+<div ng-controller="roleCreateModifyCtrl" id="roleCreateModifyId">
+
+    <div ng-hide="createAuth || updateAuth">抱歉 ， 您没有权限 </div>
+    <div ng-show="createAuth || updateAuth">
+
+        <div class = "row">
+            <span class="col-md-1">角色名</span>
+            <span class="col-md-6"> <input type="text" ng-model="roleName" class="roleInputCls"> </span>
+            <span class="col-md-5"></span>
+        </div>
+        <div class = "row">
+            <span class="col-md-1">角色描述</span>
+            <span class="col-md-6"> <input type="text" ng-model="roleDesc" class="roleInputCls"> </span>
+            <span class="col-md-5"></span>
+        </div>
+        <div class = "row">
+            <span class="col-md-1">资源列表</span>
+            <span class="col-md-6">
+                <input type="text" ng-model="roleResourceStr" id="resourceNames" class="roleInputCls">
+                <input type="hidden" ng-modle="resourceIds" id="resourceIds">
+                <button ng-click="showResource()" id="showResourceId">选择权限</button>
+            </span>
+            <span class="col-md-5"></span>
+            <!--<span class="col-md-1"></span>-->
+        </div>
+        <div class="row">
+            <span class="col-md-1"><button ng-click="submitRole()">提交</button> </span>
+            <span class="col-md-3" id="resourceContentId" style=""><ul id="treeAuth" class="ztree"></ul></span>
+            <span class="col-md-7"></span>
+            <span class="col-md-1"></span>
+        </div>
+        {{errorMsg}}
+
+    </div>
+
+</div>

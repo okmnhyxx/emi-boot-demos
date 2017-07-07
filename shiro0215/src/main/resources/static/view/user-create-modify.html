@@ -1,0 +1,42 @@
+<div ng-controller="userCreateModifyCtrl" id="userCreateModifyId">
+
+    <div ng-hide="createAuth || updateAuth">抱歉 ， 您没有权限 </div>
+    <div ng-show="createAuth || updateAuth">
+        <div class = "row">
+            <span class="col-md-1">用户名</span>
+            <span class="col-md-6"> <input type="text" ng-model="username" class="userInputCls"> </span>
+            <span class="col-md-5"></span>
+        </div>
+        <div class = "row">
+            <span class="col-md-1">所属公司</span>
+            <span class="col-md-6">
+                <input type="text" ng-model="organizationNames" class="userInputCls">
+                <input type="hidden" ng-modle="organizationIds" id="resourceIds">
+                <button ng-click="selectOrganization()" id ="selectBtnId">选择公司</button>
+            </span>
+            <span class="col-md-5"></span>
+        </div>
+        <div class = "row">
+            <span class="col-md-1">角色列表</span>
+            <span class="col-md-6">
+                <input type="hidden" id="roleIds">
+                <select multiple="multiple" class="userInputCls" size="10" ng-model="roles" ng-options="o.key as o.value for o in roleList"></select>
+            </span>
+            <span class="col-md-5">
+            </span>
+        </div>
+        <div class="row">
+            <span class="col-md-1"><button ng-click="submitUser()">提交</button></span>
+            <span class="col-md-6"> </span>
+            <span class="col-md-5"></span>
+        </div>
+
+
+        <div id="organizationContentId" style="display:none; position: absolute;">
+            <ul id="treeOrganization" class="ztree"></ul>
+        </div>
+
+
+        {{errorMsg}}
+    </div>
+</div>

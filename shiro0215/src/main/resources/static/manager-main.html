@@ -1,0 +1,52 @@
+<header class="header" ng-controller = "managerHeadCtrl">
+    <div class="person-info dropdown">
+        <img src="images/portrait.jpg" width="20px" height="20px">
+        {{username}} &nbsp;&nbsp;
+        <a href="/logout">logout</a>
+    </div>
+</header>
+
+<div>
+    <aside class="aside" ng-controller = "menuCtrl">
+        <div class="menu-container" role="tablist" aria-multiselectable="true">
+
+            <ul>
+                <li ng-repeat = "menuItem in menuList">
+                    <a ui-sref = "{{menuItem.stateUrl}}" >{{menuItem.permissionName}}</a>
+                    <ul ng-if="menuItem.menuVoList.length > 0">
+                        <li ng-repeat = "m2 in menuItem.menuVoList track by $index">
+                            &nbsp;&nbsp;<a ui-sref = "{{m2.stateUrl}}" >{{m2.permissionName}}</a>
+                        </li>
+                    </ul>
+                    </ol>
+                </li>
+            </ul>
+
+            <br>
+            <br>
+            <br>
+
+            <!--<ul>-->
+                <!--<li ng-repeat = "menuItem2 in menuList2"><a href="#{{menuItem2.mainItemVo.stateUrl}}" >{{menuList.mainItemVo.permissionName}}</a></li>-->
+            <!--</ul>-->
+        </div>
+    </aside>
+    <div class="content" ng-controller="managerContentCtrl">
+        <div class="main">
+            <div id="tabs">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation">
+                        <a href="#home" aria-controls="home" role="tab" data-toggle="tab">首页</a></li>
+                </ul>
+                <!-- Tab pa nes -->
+                <div class="tab-content">
+                    <section>
+                        <div ui-view>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

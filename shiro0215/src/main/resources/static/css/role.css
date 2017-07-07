@@ -1,0 +1,26 @@
+#roleContentId table tr td {
+    border: 1px solid black;
+}
+
+
+
+#roleCreateModifyId ul.ztree {
+    margin-top: 0px;
+    border: 1px solid #617775;
+    background: #f0f6e4;
+    width:320px;
+    height:400px;
+    overflow-y:scroll;
+    overflow-x:auto;
+}
+
+
+#roleCreateModifyId .roleInputCls {
+    width: 320px;
+}
+
+#roleCreateModifyId span#resourceContentId {
+    padding: 0px;
+    display:none;
+    position: absolute;
+}

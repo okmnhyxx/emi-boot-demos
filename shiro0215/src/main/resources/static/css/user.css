@@ -1,0 +1,28 @@
+#userContentId table tr th {
+    text-align:center;
+    vertical-align:middle
+}
+
+
+#userContentId .userInputCls {
+    width: 320px;
+}
+
+
+
+#userCreateModifyId ul.ztree {
+    margin-top: 0px;
+    border: 1px solid #617775;
+    background: #f0f6e4;
+    width:320px;
+    height:400px;
+    overflow-y:scroll;
+    overflow-x:auto;
+}
+
+
+#roleCreateModifyId #organizationContentId {
+    padding: 0px;
+    display:none;
+    position: absolute;
+}

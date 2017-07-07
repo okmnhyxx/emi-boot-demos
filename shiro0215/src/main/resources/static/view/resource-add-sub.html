@@ -1,0 +1,61 @@
+<div ng-controller="resourceSubCtrl">
+
+    <div ng-hide = "createAuth">抱歉 ， 您没有权限 </div>
+    <div ng-show = "createAuth">
+        <div class = "row">
+            <span class="col-md-2">父节点名称</span>
+            <span class="col-md-3" ng-bind="parentDesc"></span>
+            <span class="col-md-7"></span>
+        </div>
+        <div class = "row">
+            <span class="col-md-2">父节点state url</span>
+            <span class="col-md-3" ng-bind="parentStateUrl"></span>
+            <span class="col-md-7"></span>
+        </div>
+        <div class = "row">
+            <span class="col-md-2">父节点权限串</span>
+            <span class="col-md-3" ng-bind="parentName"></span>
+            <span class="col-md-7"></span>
+        </div>
+        <div class = "row">
+            <span class="col-md-2">子节点名称</span>
+            <span class="col-md-3"><input type="text" ng-model="permissionName"><span class="red" ng-show="notBtnNode">*</span></span>
+            <span class="col-md-7"></span>
+        </div>
+        <div class = "row">
+            <span class="col-md-2">子节点类型aa</span>
+        <span class="col-md-3">
+            <select ng-model="viewType" ng-options="o.key as o.value for o in viewTypeData">
+                <option value="">-----请选择-----</option>
+            </select>
+            <!--<select ng-model="viewType" ng-init="viewType=viewTypeData[0]" ng-options="o.key as o.value for o in viewTypeData" ng-change="viewTypeChange()">-->
+            <!--</select>-->
+            <span class="red">*</span>
+        </span>
+            <span class="col-md-7"></span>
+        </div>
+        <div class = "row">
+            <span class="col-md-2">子节点state url</span>
+            <span class="col-md-3"><input type="text" ng-model="stateUrl"><span class="red" ng-show="notBtnNode">*</span></span>
+            <span class="col-md-7"></span>
+        </div>
+        <div class = "row">
+            <span class="col-md-2">子节点template url</span>
+            <span class="col-md-3"><input type="text" ng-model="templateUrl"><span class="red" ng-show="notBtnNode">*</span> </span>
+            <span class="col-md-7"></span>
+        </div>
+        <div class = "row">
+            <span class="col-md-2">子节点权限串</span>
+            <span class="col-md-3"><input type="text" ng-model="permissionCode"><span class="red">*</span> </span>
+            <span class="col-md-7"></span>
+        </div>
+
+        <button ng-click="addSubNode()">确认添加</button>
+
+        <br>
+        <br>
+        {{errorMsg}}
+    </div>
+
+
+</div>

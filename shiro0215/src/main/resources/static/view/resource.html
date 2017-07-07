@@ -1,10 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>资源管理</title>
-</head>
-<body>
 
-</body>
-</html>
+
+<div ng-controller="resourceContentCtrl">
+
+    <div ng-hide="retrieveAuth">抱歉 ， 您没有权限 </div>
+    <div ng-show="retrieveAuth">
+        <div ng-bind="successMsg"></div>
+        <button ng-model="btn" ng-click="submit()">测试请求头</button>
+
+        <button ng-click="expandAll()">Expand all</button>
+        <button ng-click="collapseAll()">Collapse all</button>
+        <button ng-click="createResource(null)">添加根节点</button>
+        <br>
+        <br>
+        <!--<table id="tableList">-->
+        <!--<thead>-->
+        <!--<tr>-->
+        <!--<th>名称</th>-->
+        <!--<th>类型</th>-->
+        <!--<th>state-url</th>-->
+        <!--<th>simple-url</th>-->
+        <!--<th>template-url</th>-->
+        <!--<th>权限字符串</th>-->
+        <!--<th>操作</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+
+        <!--<tbody>-->
+
+        <!--<tr ng-repeat="r in resourceList" data-tt-id="{{r.id}}" data-tt-parent-id="{{r.parentId}}">-->
+        <!--<td ng-bind="r.permissionName"></td>-->
+        <!--<td ng-bind="r.viewTypeStr"></td>-->
+        <!--<td ng-bind="r.stateUrl"></td>-->
+        <!--<td ng-bind="r.menuUrl"></td>-->
+        <!--<td ng-bind="r.templateUrl"></td>-->
+        <!--<td ng-bind="r.permissionCode"></td>-->
+        <!--<td>-->
+        <!--<button ng-hide="r.viewType == 3" ng-click="addChild({{r.id}})" ng-class = "{'shiro-hidden': false}">添加子节点</button>-->
+        <!--<button ng-click="modifySelf({{r.id}})" ng-class = "{'shiro-hidden': false}">修改</button>-->
+        <!--</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+        <!--</table>-->
+
+
+        <div>
+            <div class = "row">
+                <span class="col-md-2">名称</span>
+                <span class="col-md-1">类型</span>
+                <!--<span class="col-md-2">state-url</span>-->
+                <span class="col-md-2">menu-url</span>
+                <span class="col-md-2">template-url</span>
+                <span class="col-md-2">权限字符串</span>
+                <span class="col-md-2">操作</span>
+                <span class="col-md-1"></span>
+            </div>
+
+            <div ui-tree id="tree-root" class="ng-scope angular-ui-tree" data-drag-enabled="false">
+                <ol ui-tree-nodes ng-model="resourceList" class="ng-pristine ng-untouched ng-valid ng-scope angular-ui-tree-nodes">
+                    <li ui-tree-node ng-repeat="node in resourceList" ng-model="node.id" class="ng-scope angular-ui-tree-node" collapsed="false" ng-include="'nodes_renderer'">
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/ng-template" id="nodes_renderer">
+        <div ui-tree-handle class="tree-node tree-node-content">
+            <a class="btn btn-success btn-xs " ng-if="node.subList && node.subList.length > 0" data-nodrag ng-click="toggle(this)">
+                <span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed,'glyphicon-chevron-down': !collapsed}"></span>
+            </a>
+            <div class="row">
+                <span  class="col-md-2" ng-bind="node.permissionName"></span>
+                <span class="col-md-1" ng-bind="node.viewTypeStr"></span>
+                <span class="col-md-2" ng-bind="node.stateUrl"></span>
+                <span class="col-md-2" ng-bind="node.templateUrl"></span>
+                <span class="col-md-2" ng-bind="node.permissionCode"></span>
+                <span class="col-md-2" >
+                    <button ng-show="updateAuth" ng-click="updateResource(node.id)">修改</button></button>
+                    <button ng-show="createAuth && node.viewType != 3" ng-click="createResource(node)">添子节点</button></button>
+                    <button ng-show="createAuth" ng-click="deleteResource(node.id)">禁用</button></button>
+                </span>
+                <span class="col-md-1"></span>
+            </div>
+        </div>
+        <ol ui-tree-nodes ng-model="node.subList" ng-class="{hidden: collapsed}">
+            <li ui-tree-node ng-repeat="node in node.subList" ng-model="node.id" ng-include="'nodes_renderer'">
+            </li>
+        </ol>
+    </script>
+
+</div>

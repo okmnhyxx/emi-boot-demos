@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.emi.shiro.t15.repository.mapper.PermissionMapper">
+
+       <select id="findRolePermission" resultType="com.emi.shiro.t15.dto.vo.ResourceBaseVo">
+           select p.id, p.permission_name as name
+           from t15_permission p
+           inner join t15_role_permission rp
+           where rp.role_id = #{roleId}
+           and rp.permission_id = p.id
+           and p.deleted = false
+       </select>
+
+</mapper>
