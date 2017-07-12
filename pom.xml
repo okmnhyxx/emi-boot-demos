@@ -13,6 +13,7 @@
 	<modules>
 		<module>shiro0210</module>
 		<module>shiro0215</module>
+		<module>mongo0707</module>
 	</modules>
 
 	<parent>
