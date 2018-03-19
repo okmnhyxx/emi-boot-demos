@@ -11,10 +11,10 @@
 	<name>emi-boot-demos</name>
 	<description>Demo project for Spring Boot</description>
 	<modules>
-		<module>shiro0210</module>
-		<module>shiro0215</module>
-		<module>mongo0707</module>
-		<module>testing170709</module>
+		<module>a170210shiro</module>
+		<module>a170215shiro</module>
+		<module>a170707mongo</module>
+		<module>a170709testing</module>
 	</modules>
 
 	<parent>
